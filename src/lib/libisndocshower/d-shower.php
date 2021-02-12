@@ -1,5 +1,6 @@
 <?php
 namespace ISnow\LibDocumentShower;
+global $sitedata;
 $sitedata = array();
 function lib_init(){
     $_lib["byNs"]["ISnow"]["LibDocumentShower"] = array(
@@ -22,6 +23,7 @@ function lib_init(){
     lib_logger("docshower","libisndocshowerは組み込み関数を正常に終了しました。",ISN_LIB_LOG_INFO,True);
 }
 function blogoutput($title,$author,$createtime,$bodydata,$parmlink,$options){
+    global $sitedata;
     $blogshower = "ISnow Blog Shower v1.0 Powered by ISnow Document Shower";
     $coltheme = $options["colormode"];
     $pagedesc = $options["descriptions"];

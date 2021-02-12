@@ -1,2 +1,2 @@
 <?php
-require "./d-shower.php";
+require "d-shower.php";

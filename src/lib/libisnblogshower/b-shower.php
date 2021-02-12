@@ -1,6 +1,7 @@
 <?php
 namespace ISnow\LibweBlogShower;
 function lib_init(){
+    define("BLOG_DATABASE_DIR",realpath("../../db.d/blogshower"));
     $_lib["byNs"]["ISnow"]["LibweBlogShower"] = array(
         "versioncode" => 1,
         "versionid" => 1.0,
@@ -20,4 +21,7 @@ function lib_init(){
         )
     );
     lib_logger("blogshower","libisnblogshowerは組み込み関数を正常に終了しました。",ISN_LIB_LOG_INFO,True);
+}
+function getBlogdata($articleid){
+
 }
