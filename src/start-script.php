@@ -47,4 +47,5 @@ function lib_logger($libname = "libs",$message = "",$msgrank = ISN_LIB_LOG_INFO,
     }
 }
 
-lib_load("");
+lib_load("libisndocshower");
+lib_load("libisnblogshower");
