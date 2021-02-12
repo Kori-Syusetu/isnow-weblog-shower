@@ -1,5 +1,6 @@
 <?php
 namespace ISnow\LibDocumentShower;
+$sitedata = array();
 function lib_init(){
     $_lib["byNs"]["ISnow"]["LibDocumentShower"] = array(
         "versioncode" => 1,
@@ -17,12 +18,19 @@ function lib_init(){
             "Php" => "7.3<=x"
         )
     );
+    $sitedata = json_decode(file_get_contents("./siteinfo.json"),true);
     lib_logger("docshower","libisndocshowerは組み込み関数を正常に終了しました。",ISN_LIB_LOG_INFO,True);
 }
 function blogoutput($title,$author,$createtime,$bodydata,$parmlink,$options){
     $blogshower = "ISnow Blog Shower v1.0 Powered by ISnow Document Shower";
     $coltheme = $options["colormode"];
     $pagedesc = $options["descriptions"];
+    $sitename = $sitedata["site"]["name"];
+    $sitecopyright = $sitedata["site"]["copyright"];
+    $swname_out = "";
+    if ($sitedata["swname"]["out"] == 1){
+
+    }
     $metatags = "";
     foreach ($options["addmeta"] as $metavalues) {
         $metatags .= "        <meta";
@@ -47,12 +55,24 @@ function blogoutput($title,$author,$createtime,$bodydata,$parmlink,$options){
         <meta name="color-scheme" content="$coltheme">
         <meta name="descriptions" content="$pagedesc">
         <!-- 追加のMETA要素 -->
-        $metatags
+$metatags
         <title>$title</title>
-        <link rel="canonical" content="$parmlink">
-
+        <link rel="canonical" href="$parmlink">
+        <link id="mainstyle" name="style-main" rel="stylesheet" href="/css.php?f=main">
+        <script id="mainscript" name="script-main" src="/script.php?f=main"></script>
     </head>
     <body>
+        <header>
+            <a href="/">$sitename</a>
+        </header>
+        <main>
+        </main>
+        <footer>
+            <p>
+                <small class="copyr">$sitecopyright</small>
+            </p>
+            $swname_out
+        </footer>
     </body>
 </html>
 __EOF__;
