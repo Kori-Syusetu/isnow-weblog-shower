@@ -1,7 +1,8 @@
 {
     "site": {
         "name": "",
-        "copyright": "Copyright &copy; "
+        "copyright": "Copyright &copy; ",
+        "hostname": ""
     },
     "swname": {
         "out": 0
